@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var request = require('request');
 
 var app = express();
 
@@ -58,6 +59,19 @@ app.post('/', function(req, res){
             "speech": responseText,
             "displayText": responseText
         });
+    }else if(req.body.result.action == "Get-weather"){
+        var city = req.body.result.parameters.city;
+        var url = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=977e4873c14852fdf44afe66f47c3b14";
+
+        request(url, function(error, response, body){
+            var temp = Math.round(JSON.parse(body).main.temp-273.15);
+            var responseText = "Temperature in "+city+" is "+temp+" degree centigrade.";
+
+            res.json({
+                "speech": responseText,
+                "displayText": responseText
+            });
+        })
     }
 });
 
