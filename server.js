@@ -9,6 +9,11 @@ app.use(bodyParser.json());
 
 app.post('/', function(req, res){
     console.log(req.body);
+
+    if(req.body.result.action == "checkVote"){
+        var age = req.body.result.parameters.age;
+        console.log(age);
+    }
 });
 
 var port = process.env.PORT || 3000;
