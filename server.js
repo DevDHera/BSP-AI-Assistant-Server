@@ -28,7 +28,7 @@ app.post('/', function(req, res){
         });
     }else if(req.body.result.action == "Add"){
         var sum = parseFloat(req.body.result.parameters.number2) + parseFloat(req.body.result.parameters.number1);
-        var responseText = "The sum of "+ req.body.result.parameters.number1 + " and "+ req.body.result.parameters.number2 + " is "+ sum;
+        var responseText = "The sum of "+ req.body.result.parameters.number2+ " and "+ req.body.result.parameters.number1 + " is "+ sum;
 
         res.json({
             "speech": responseText,
@@ -44,7 +44,7 @@ app.post('/', function(req, res){
         });
     }else if(req.body.result.action == "Multiply"){
         var mul = parseFloat(req.body.result.parameters.number2) * parseFloat(req.body.result.parameters.number1);
-        var responseText = "The product of "+ req.body.result.parameters.number1 + " and "+ req.body.result.parameters.number2 + " is "+ mul;
+        var responseText = "The product of "+ req.body.result.parameters.number2 + " and "+ req.body.result.parameters.number1 + " is "+ mul;
 
         res.json({
             "speech": responseText,
