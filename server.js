@@ -34,6 +34,30 @@ app.post('/', function(req, res){
             "speech": responseText,
             "displayText": responseText
         });
+    }else if(req.body.result.action == "Subtract"){
+        var diff = parseFloat(req.body.result.parameters.number1) - parseFloat(req.body.result.parameters.number2);
+        var responseText = "The difference between "+ req.body.result.parameters.number1 + " and "+ req.body.result.parameters.number2 + " is "+ diff;
+
+        res.json({
+            "speech": responseText,
+            "displayText": responseText
+        });
+    }else if(req.body.result.action == "Multiply"){
+        var mul = parseFloat(req.body.result.parameters.number1) * parseFloat(req.body.result.parameters.number2);
+        var responseText = "The product of "+ req.body.result.parameters.number1 + " and "+ req.body.result.parameters.number2 + " is "+ mul;
+
+        res.json({
+            "speech": responseText,
+            "displayText": responseText
+        });
+    }else if(req.body.result.action == "Divide"){
+        var div = parseFloat(req.body.result.parameters.number1) / parseFloat(req.body.result.parameters.number2);
+        var responseText = req.body.result.parameters.number1 + " divided by "+ req.body.result.parameters.number2 + " is "+ div;
+
+        res.json({
+            "speech": responseText,
+            "displayText": responseText
+        });
     }
 });
 
