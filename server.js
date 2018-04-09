@@ -13,6 +13,19 @@ app.post('/', function(req, res){
     if(req.body.result.action == "checkVote"){
         var age = req.body.result.parameters.age;
         console.log(age);
+        
+        var response = "";
+
+        if(age.amount >= 18){
+            response = "Yes";
+        }else{
+            response = "No";
+        }
+
+        res.json({
+            "speech": response,
+            "displayText": response
+        });
     }
 });
 
