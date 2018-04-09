@@ -27,7 +27,7 @@ app.post('/', function(req, res){
             "displayText": response
         });
     }else if(req.body.result.action == "Add"){
-        var sum = parseFloat(req.body.result.parameters.number1) + parseFloat(req.body.result.parameters.number2);
+        var sum = parseFloat(req.body.result.parameters.number2) + parseFloat(req.body.result.parameters.number1);
         var responseText = "The sum of "+ req.body.result.parameters.number1 + " and "+ req.body.result.parameters.number2 + " is "+ sum;
 
         res.json({
@@ -35,15 +35,15 @@ app.post('/', function(req, res){
             "displayText": responseText
         });
     }else if(req.body.result.action == "Subtract"){
-        var diff = parseFloat(req.body.result.parameters.number1) - parseFloat(req.body.result.parameters.number2);
-        var responseText = "The difference between "+ req.body.result.parameters.number1 + " and "+ req.body.result.parameters.number2 + " is "+ diff;
+        var diff = parseFloat(req.body.result.parameters.number2) - parseFloat(req.body.result.parameters.number1);
+        var responseText = "The difference between "+ req.body.result.parameters.number2 + " and "+ req.body.result.parameters.number1 + " is "+ diff;
 
         res.json({
             "speech": responseText,
             "displayText": responseText
         });
     }else if(req.body.result.action == "Multiply"){
-        var mul = parseFloat(req.body.result.parameters.number1) * parseFloat(req.body.result.parameters.number2);
+        var mul = parseFloat(req.body.result.parameters.number2) * parseFloat(req.body.result.parameters.number1);
         var responseText = "The product of "+ req.body.result.parameters.number1 + " and "+ req.body.result.parameters.number2 + " is "+ mul;
 
         res.json({
@@ -51,8 +51,8 @@ app.post('/', function(req, res){
             "displayText": responseText
         });
     }else if(req.body.result.action == "Divide"){
-        var div = parseFloat(req.body.result.parameters.number1) / parseFloat(req.body.result.parameters.number2);
-        var responseText = req.body.result.parameters.number1 + " divided by "+ req.body.result.parameters.number2 + " is "+ div;
+        var div = parseFloat(req.body.result.parameters.number2) / parseFloat(req.body.result.parameters.number1);
+        var responseText = req.body.result.parameters.number2 + " divided by "+ req.body.result.parameters.number1 + " is "+ div;
 
         res.json({
             "speech": responseText,
